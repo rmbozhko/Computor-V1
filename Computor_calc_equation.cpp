@@ -4,7 +4,7 @@ namespace Computor
 {
 	namespace CalcEquation
 	{
-		std::pair<double, double>		CalcDiscriminant(int a, int b, int c)
+		std::pair<double, double>		CalcDiscriminant(double a, double b, double c)
 		{
 			double	D = std::sqrt((b * b) - (4 * a * c));
 			double	x1 = (-b + D) / (2 * a);
@@ -27,7 +27,7 @@ namespace Computor
 			Unknown&	b = v[FindUknownFactByPolynDegree(v, 1)];
 			Unknown&	c = v[FindUknownFactByPolynDegree(v, 0)];
 
-			if (c.GetNumber() != 0)
+			if (c.GetNumber() != 0.0)
 			{
 				c.SetNumber(-c.GetNumber());
 				res = c.GetNumber() / b.GetNumber();
@@ -42,10 +42,10 @@ namespace Computor
 			Unknown&	c = v[FindUknownFactByPolynDegree(v, 0)];
 			double		res;
 
-			if (c.GetNumber() == 0)
-				PrintResults("All real numbers", 0);
+			if (c.GetNumber() == 0.0)
+				PrintResults("The equation has no indeterminates variable - nothing to solve", 0);
 			else
-				throw std::string("Equation is unsolvable");
+				throw std::string("Nothing to solve - empty polynomial equation");
 		}
 	}
 }

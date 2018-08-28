@@ -5,7 +5,32 @@ namespace Computor
 	std::vector<Unknown>	ParseEquation(std::string& eq)
 	{
 		std::vector<Unknown> 	res;
+		std::smatch				m;
+		size_t					counter = 0;
 
+		std::cout << eq << "|" << std::endl;
+		
+		if (std::regex_match(eq, m, std::regex("[+-]?[0-9]+([.][0-9]+)?[*][X][^][0]"
+												"([+-][0-9]+([.][0-9]+)?[*][X][^][1])?"
+												"([+-][0-9]+([.][0-9]+)?[*][X][^][2])?")))
+		{
+		    std::regex words_regex("[+-]?[0-9]+([.][0-9]+)?");
+			auto start = std::sregex_iterator(eq.begin(), eq.end(), words_regex);
+			auto end = std::sregex_iterator();
+			for (std::sregex_iterator i = start; i != end; ++i, ++counter)
+			{
+		        if (counter == 0 || (counter % 2) == 0)
+		        {
+					std::cout << counter << "-th digit: " << stod((*i).str()) << std::endl;
+		        	res.push_back(Unknown(stod((*i).str()), counter));
+		        }
+		        // std::smatch match = *i;                                             
+		        // std::string match_str = match.str(); 
+		        // std::cout << "|" << match_str << '\n';
+    		}
+		}
+		else
+			throw std::string("Undefined character found in passed equation");
 		return (res);
 	}
 
@@ -38,7 +63,7 @@ namespace Computor
 		{
 			Unknown		r_elem = right[r_pos];
 			int l_pos = FindUknownFactByPolynDegree(left, polynomial_degree);
-			if (r_elem.GetNumber() != 0)
+			if (r_elem.GetNumber() != 0.0)
 					r_elem.SetNumber(-r_elem.GetNumber()); // handle max int
 			if (l_pos != -1)
 			{
@@ -81,9 +106,9 @@ namespace Computor
 		for (int i = 0; i < v.size(); ++i)
 		{
 			Unknown& temp = v[FindUknownFactByPolynDegree(v, i)];
-			if (i != 0 && temp.GetNumber() < 0)
+			if (i != 0 && temp.GetNumber() < 0.0)
 				std::cout << " - " << -temp.GetNumber();
-			else if (i != 0 && temp.GetNumber() >= 0)
+			else if (i != 0 && temp.GetNumber() >= 0.0)
 				std::cout << " + " << temp.GetNumber();
 			else
 				std::cout << temp.GetNumber();

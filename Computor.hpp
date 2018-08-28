@@ -7,6 +7,7 @@
 #include <iostream>
 #include "Unknown.hpp"
 #include <cmath>
+#include <regex>
 
 # define MAX_POLYNOMIAL_DEGREE 2
 
