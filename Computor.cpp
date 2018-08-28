@@ -24,7 +24,11 @@ int main(int argc, char const *argv[])
 					std::vector<Unknown> left = ParseEquation(v[0]);
 					std::vector<Unknown> right = ParseEquation(v[1]);
 					for (size_t i = 0; i <= MAX_POLYNOMIAL_DEGREE; ++i)
-						SimplifyEquation(left, right, i);
+						if (right.size())
+							SimplifyEquation(left, right, i);
+					std::cout << "####################++++++++++++++++" << std::endl;
+					print_v(left);
+					print_v(right);
 					PrintSimplifiedEquation(left);
 					switch (FindUknownFactWithMaxPolynDegree(left))
 					{
