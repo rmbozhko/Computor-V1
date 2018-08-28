@@ -52,8 +52,7 @@ namespace Computor
 		max_degree = -1;
 		for (int i = 0; i < v.size(); ++i)
 		{
-			std::cout << v[i].GetPolynDegree() << std::endl;
-			if (static_cast<int>(v[i].GetPolynDegree()) > max_degree)
+			if (static_cast<int>(v[i].GetPolynDegree()) > max_degree && v[i].GetNumber() != 0.0)
 				max_degree = static_cast<int>(v[i].GetPolynDegree());
 		}
 		return (max_degree);
@@ -117,10 +116,10 @@ namespace Computor
 
 	void		PrintSimplifiedEquation(std::vector<Unknown>& v)
 	{
-		// print_v(v);
-		// std::cout << v.size() << std::endl;
-		if (v.size() != MAX_POLYNOMIAL_DEGREE)
+		std::cout << v.size() << std::endl;
+		if (v.size() > MAX_POLYNOMIAL_DEGREE + 1)
 			throw std::string("Wrong simplified equation");
+		std::cout << "Printing simplified version of passed equation" << std::endl;
 		for (int i = 0; i < v.size(); ++i)
 		{
 			Unknown& temp = v[FindUknownFactByPolynDegree(v, i)];
