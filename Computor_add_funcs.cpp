@@ -92,7 +92,6 @@ namespace Computor
 	void		PrintResults(const std::pair<double, double> res, const size_t polynomial_degree)
 	{
 		std::cout << "Polynomial degree: " << polynomial_degree << std::endl;
-		std::cout << "Discriminant is strictly positive, the two solutions are:" << std::endl;
 		std::cout << res.first << std::endl;
 		std::cout << res.second << std::endl;
 	}
