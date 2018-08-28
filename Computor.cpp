@@ -12,8 +12,8 @@ int main(int argc, char const *argv[])
 			eq.erase(remove_if(eq.begin(), eq.end(), isspace), eq.end());
 			std::replace(eq.begin(), eq.end(), '=', ' ');
 
-			vector<std::string> v;
-			stringstream ss(eq);
+			std::vector<std::string> v;
+			std::stringstream ss(eq);
 			std::string temp;
 			while (ss >> temp)
 			    v.push_back(temp);
@@ -50,7 +50,7 @@ int main(int argc, char const *argv[])
 				std::cerr << "Wrong format of equation" << std::endl;
 		}
 		else
-			std::cerr << "Empty equation argument" << std::cout;
+			std::cerr << "Empty equation argument" << std::endl;
 	}
 	else
 		std::cerr << "Wrong number of command line arguments" << std::endl;

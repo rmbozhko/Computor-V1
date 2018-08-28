@@ -9,14 +9,14 @@ namespace Computor
 			double	D = std::sqrt((b * b) - (4 * a * c));
 			double	x1 = (-b + D) / (2 * a);
 			double	x2 = (-b - D) / (2 * a);
-			return (std::make_pair<double, double>(x1, x2));
+			return (std::make_pair(x1, x2));
 		}
 
 		void		HandleQuadraticEquation(std::vector<Unknown>& v)
 		{
-			Unknown&	a = FindUknownFactByPolynDegree(v, 2);
-			Unknown&	b = FindUknownFactByPolynDegree(v, 1);
-			Unknown&	c = FindUknownFactByPolynDegree(v, 0);
+			Unknown&	a = v[FindUknownFactByPolynDegree(v, 2)];
+			Unknown&	b = v[FindUknownFactByPolynDegree(v, 1)];
+			Unknown&	c = v[FindUknownFactByPolynDegree(v, 0)];
 			auto		res = CalcDiscriminant(a.GetNumber(), b.GetNumber(), c.GetNumber());
 			PrintResults(res, 2);
 		}
@@ -24,8 +24,8 @@ namespace Computor
 		void		HandleSimpleEquation(std::vector<Unknown>& v)
 		{
 			double		res;
-			Unknown&	b = FindUknownFactByPolynDegree(v, 1);
-			Unknown&	c = FindUknownFactByPolynDegree(v, 0);
+			Unknown&	b = v[FindUknownFactByPolynDegree(v, 1)];
+			Unknown&	c = v[FindUknownFactByPolynDegree(v, 0)];
 
 			if (c.GetNumber() != 0)
 			{
@@ -39,7 +39,7 @@ namespace Computor
 
 		void		HandleEquality(std::vector<Unknown>& v)
 		{
-			Unknown&	c = FindUknownFactByPolynDegree(v, 0);
+			Unknown&	c = v[FindUknownFactByPolynDegree(v, 0)];
 			double		res;
 
 			if (c.GetNumber() == 0)

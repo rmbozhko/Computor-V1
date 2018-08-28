@@ -5,7 +5,7 @@ class Unknown
 {
 	public:
 		Unknown(size_t polynomial_degree, int number) : polynomial_degree_(polynomial_degree), number_(number) {};
-		~Unknown();
+		~Unknown() {}
 		void	SetNumber(int number) { number_ = number; }
 		int		GetNumber() const { return (number_); }
 		size_t	GetPolynDegree() const { return (polynomial_degree_); }
