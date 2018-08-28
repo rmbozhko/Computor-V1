@@ -49,7 +49,7 @@ namespace Computor
 	{
 		int		max_degree;
 
-		max_degree = -1;
+		max_degree = (v.size()) ? 0 : -1;
 		for (int i = 0; i < v.size(); ++i)
 		{
 			if (static_cast<int>(v[i].GetPolynDegree()) > max_degree && v[i].GetNumber() != 0.0)
@@ -88,7 +88,6 @@ namespace Computor
 	void		PrintResults(const std::string msg, const size_t polynomial_degree)
 	{
 		std::cout << "Polynomial degree: " << polynomial_degree << std::endl;
-		std::cout << "The solution is:" << std::endl;
 		if (msg.size())
 			std::cout << msg << std::endl;
 	}

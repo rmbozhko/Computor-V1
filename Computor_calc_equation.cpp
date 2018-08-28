@@ -6,9 +6,11 @@ namespace Computor
 	{
 		std::pair<double, double>		CalcDiscriminant(double a, double b, double c)
 		{
-			double	D = std::sqrt((b * b) - (4 * a * c));
-			double	x1 = (-b + D) / (2 * a);
-			double	x2 = (-b - D) / (2 * a);
+			double	D = (b * b) - (4 * a * c);
+			if (D < 0.0)
+				throw std::string("Discriminant is negative");
+			double	x1 = (-b + std::sqrt(D)) / (2 * a);
+			double	x2 = (-b - std::sqrt(D)) / (2 * a);
 			return (std::make_pair(x1, x2));
 		}
 
@@ -18,6 +20,7 @@ namespace Computor
 			Unknown&	b = v[FindUknownFactByPolynDegree(v, 1)];
 			Unknown&	c = v[FindUknownFactByPolynDegree(v, 0)];
 			auto		res = CalcDiscriminant(a.GetNumber(), b.GetNumber(), c.GetNumber());
+			std::cout << "Answers same:" << ((c.GetNumber() + b.GetNumber() * res.first + a.GetNumber() * (res.first * res.first)) == (c.GetNumber() + b.GetNumber() * res.second + a.GetNumber() * (res.second * res.second))) << std::endl;
 			PrintResults(res, 2);
 		}
 
