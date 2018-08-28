@@ -8,6 +8,7 @@
 #include "Unknown.hpp"
 #include <cmath>
 #include <regex>
+#include <float.h>
 
 # define MAX_POLYNOMIAL_DEGREE 2
 

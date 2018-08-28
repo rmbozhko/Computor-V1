@@ -7,7 +7,7 @@ class Unknown
 		Unknown(size_t polynomial_degree, double number) : polynomial_degree_(polynomial_degree), number_(number) {};
 		~Unknown() {}
 		void	SetNumber(double number) { number_ = number; }
-		double		GetNumber() const { return (number_); }
+		double	GetNumber() const { return (number_); }
 		size_t	GetPolynDegree() const { return (polynomial_degree_); }
 
 	private:

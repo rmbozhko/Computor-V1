@@ -26,9 +26,6 @@ int main(int argc, char const *argv[])
 					for (size_t i = 0; i <= MAX_POLYNOMIAL_DEGREE; ++i)
 						if (right.size())
 							SimplifyEquation(left, right, i);
-					std::cout << "####################++++++++++++++++" << std::endl;
-					print_v(left);
-					print_v(right);
 					PrintSimplifiedEquation(left);
 					switch (FindUknownFactWithMaxPolynDegree(left))
 					{

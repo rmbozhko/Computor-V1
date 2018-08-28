@@ -3,7 +3,7 @@ CC = g++
 
 SRC = Computor.cpp Computor_add_funcs.cpp Computor_calc_equation.cpp
 OBJ = $(SRC:.cpp=.o)
-CFLAGS = -c -O0 -std=c++11# -Wall -Wextra -Werror
+CFLAGS = -c -O0 -std=c++11 -Wall -Wextra -Werror
 HEADERS = Computor.hpp Unknown.hpp
 
 all: $(NAME)

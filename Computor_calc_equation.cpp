@@ -20,7 +20,6 @@ namespace Computor
 			Unknown&	b = v[FindUknownFactByPolynDegree(v, 1)];
 			Unknown&	c = v[FindUknownFactByPolynDegree(v, 0)];
 			auto		res = CalcDiscriminant(a.GetNumber(), b.GetNumber(), c.GetNumber());
-			std::cout << "Answers same:" << ((c.GetNumber() + b.GetNumber() * res.first + a.GetNumber() * (res.first * res.first)) == (c.GetNumber() + b.GetNumber() * res.second + a.GetNumber() * (res.second * res.second))) << std::endl;
 			PrintResults(res, 2);
 		}
 
@@ -43,7 +42,6 @@ namespace Computor
 		void		HandleEquality(std::vector<Unknown>& v)
 		{
 			Unknown&	c = v[FindUknownFactByPolynDegree(v, 0)];
-			double		res;
 
 			if (c.GetNumber() == 0.0)
 				PrintResults("The equation has no indeterminates variable - nothing to solve", 0);
