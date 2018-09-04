@@ -20,7 +20,7 @@ namespace Computor
 	void		SimplifyEquation(std::vector<Unknown>& left, std::vector<Unknown>& right, const size_t polynomial_degree);
 	void		PrintResults(const std::string msg, const size_t polynomial_degree);
 	void		PrintResults(const double res, const size_t polynomial_degree);
-	void		PrintResults(const std::pair<double, double> res, const size_t polynomial_degree);
+	void		PrintResults(const std::pair<std::string, std::string> res, const size_t polynomial_degree);
 	void		PrintSimplifiedEquation(std::vector<Unknown>& v);
 	void		print_v(std::vector<Unknown>& v);
 

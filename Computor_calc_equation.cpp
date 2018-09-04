@@ -4,7 +4,7 @@ namespace Computor
 {
 	namespace CalcEquation
 	{
-		std::pair<double, double>		CalcDiscriminant(double a, double b, double c)
+		std::pair<std::string, std::string>		CalcDiscriminant(double a, double b, double c)
 		{
 			double	D, x1, x2;
 			auto sqrt = [=](const double number)
@@ -49,14 +49,14 @@ namespace Computor
 			}
 			else
 			{
-				double realPart = -b / (2 * a);
-		        double imaginaryPart = sqrt(-D) / ( 2 * a);
-		        std::cout << realPart << " + " << imaginaryPart << "i" << std::endl;
-		        std::cout << realPart << " - " << imaginaryPart << "i" << std::endl;
-		        throw std::string("Discriminant is less than zero");
+				double x1 = -b / (2 * a);
+		        double x2 = sqrt(-D) / ( 2 * a);
+		        std::cout << "Discriminant is less than zero" << std::endl;
+		        return (std::make_pair(std::to_string(x1) + " + " + std::to_string(x2) + "i",
+		        						std::to_string(x1) + " - " + std::to_string(x2) + "i"));
 		    }
 			
-			return (std::make_pair(x1, x2));
+			return (std::make_pair(std::to_string(x1), std::to_string(x2)));
 		}
 
 		void		HandleQuadraticEquation(std::vector<Unknown>& v)
