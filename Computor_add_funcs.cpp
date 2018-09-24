@@ -121,4 +121,30 @@ namespace Computor
 		}
 		std::cout << " = 0" << std::endl;
 	}
+
+	void		GenerateGraph(std::vector<Unknown>& v)
+	{
+		std::ofstream		octaveFile;
+		
+		octaveFile.open("computor.m");
+		if (octaveFile.is_open() && octaveFile.good())
+		{
+			octaveFile << "x = -10:0.1:10;" << std::endl;
+			octaveFile << "function[y] = func(x)" << std::endl;
+			octaveFile << "y = ";
+			for (int i = 0; i < static_cast<int>(v.size()); ++i)
+			{
+				if (i > 0 && v[i].GetNumber() >= 0)
+					octaveFile << " + ";
+				octaveFile << (v[i].GetNumber());
+				octaveFile << " .* (x .^" << v[i].GetPolynDegree() << ")";
+			}
+			octaveFile << ";" << std::endl;
+			octaveFile << "end" << std::endl << std::endl; 
+			octaveFile << "y = func(x);" << std::endl << std::endl;
+			octaveFile << "plot(x, y);" << std::endl;
+		}
+		else
+			std::cerr << "Couldn't open the file" << std::endl;
+	}
 }

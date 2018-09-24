@@ -65,6 +65,7 @@ namespace Computor
 			Unknown&	b = v[FindUknownFactByPolynDegree(v, 1)];
 			Unknown&	c = v[FindUknownFactByPolynDegree(v, 0)];
 			auto		res = CalcDiscriminant(a.GetNumber(), b.GetNumber(), c.GetNumber());
+			GenerateGraph(v);
 			PrintResults(res, 2);
 		}
 
@@ -81,6 +82,7 @@ namespace Computor
 			}
 			else
 				res = 0.0;
+			GenerateGraph(v);
 			PrintResults(res, 1);
 		}
 
@@ -89,7 +91,10 @@ namespace Computor
 			Unknown&	c = v[FindUknownFactByPolynDegree(v, 0)];
 
 			if (c.GetNumber() == 0.0)
+			{
+				GenerateGraph(v);
 				PrintResults("The equation has no indeterminates variable - nothing to solve", 0);
+			}
 			else
 				throw std::string("Nothing to solve - empty polynomial equation");
 		}

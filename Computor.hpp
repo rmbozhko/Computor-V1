@@ -9,6 +9,8 @@
 #include <cmath>
 #include <regex>
 #include <float.h>
+#include <fstream>
+
 
 # define MAX_POLYNOMIAL_DEGREE 2
 
@@ -23,6 +25,7 @@ namespace Computor
 	void		PrintResults(const std::pair<std::string, std::string> res, const size_t polynomial_degree);
 	void		PrintSimplifiedEquation(std::vector<Unknown>& v);
 	void		print_v(std::vector<Unknown>& v);
+	void		GenerateGraph(std::vector<Unknown>& v);
 
 	namespace CalcEquation
 	{
