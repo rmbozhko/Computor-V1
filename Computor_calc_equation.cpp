@@ -7,7 +7,7 @@ namespace Computor
 		std::pair<std::string, std::string>		CalcDiscriminant(double a, double b, double c)
 		{
 			double	D, x1, x2;
-			auto sqrt = [=](const double number)
+			auto sqrt = [&](const double number)
 			{
 				const double ACCURACY = 0.001;
 				double lower, upper, guess;

@@ -17,7 +17,8 @@ $(NAME) : $(OBJ) $(HEADERS)
 
 clean:
 	@rm -rf $(OBJ)
-
+	@rm -f *.m
+	
 fclean: clean
 	@rm -rf $(NAME)
 
